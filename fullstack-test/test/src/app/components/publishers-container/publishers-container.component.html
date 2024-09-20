@@ -1,0 +1,18 @@
+<div class="publishers-container">
+  <div>
+      <button (click)="addPublisher()">Add publisher</button>
+  </div>
+  <div>
+      <h3>Publishers</h3>
+      <app-publisher-card *ngFor="let publisher of publishers" 
+          [publisher]="publisher" 
+          (click)="fetchDomains(publisher.publisher)">
+      </app-publisher-card>
+      <div *ngFor="let publisher of publishers">
+          <h4 *ngIf="domains[publisher.publisher]?.length">Domains:</h4>
+          <app-domain-card *ngFor="let domain of domains[publisher.publisher]" [domain]="domain"></app-domain-card>
+      </div>
+  </div>
+</div>
+
+
